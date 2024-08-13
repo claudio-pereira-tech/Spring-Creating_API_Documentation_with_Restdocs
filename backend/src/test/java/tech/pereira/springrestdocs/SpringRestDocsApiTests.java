@@ -7,6 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringRestDocsApiTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() throws Exception {
 	}
 }
