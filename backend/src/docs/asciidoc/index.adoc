@@ -1,0 +1,26 @@
+= Getting Started With Spring REST Docs
+
+This is an example output for a service running at http://localhost:8080:
+
+.Request
+include::{snippets}/home/http-request.adoc[]
+
+.Request body
+include::{snippets}/home/request-body.adoc[]
+
+.Request with curl
+include::{snippets}/home/curl-request.adoc[]
+
+.Request with httpie
+include::{snippets}/home/httpie-request.adoc[]
+
+.Response
+include::{snippets}/home/http-response.adoc[]
+
+.Response body
+include::{snippets}/home/response-body.adoc[]
+
+.Response fields
+include::{snippets}/home/response-fields.adoc[]
+
+As you can see the format is very simple, and in fact you always get the same message.
