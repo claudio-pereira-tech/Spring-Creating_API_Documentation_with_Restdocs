@@ -19,8 +19,11 @@ repositories {
 }
 
 extra["snippetsDir"] = file("build/generated-snippets")
+val asciidoctorExtensions: Configuration by configurations.creating
 
 dependencies {
+	asciidoctorExtensions("org.springframework.restdocs:spring-restdocs-asciidoctor:3.0.1")
+
 	implementation("org.springframework.boot:spring-boot-starter-web:3.3.2")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:3.3.2")
@@ -38,5 +41,6 @@ tasks.test {
 
 tasks.asciidoctor {
 	inputs.dir(project.extra["snippetsDir"]!!)
+	configurations("asciidoctorExtensions")
 	dependsOn(tasks.test)
 }
