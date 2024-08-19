@@ -1,0 +1,26 @@
+services:
+  springrestdocs_backend:
+    container_name: springrestdocs_backend
+    build:
+      context: ../
+      dockerfile: ./docker/springrestdocs_backend.Dockerfile
+    networks:
+      - springrestdocs_backend
+    restart: always
+
+  springrestdocs_reverse_proxy:
+      container_name: springrestdocs_reverse_proxy
+      image: nginx:1.27.1-alpine3.20-slim
+      volumes:
+         - ./configurations/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      depends_on:
+        - springrestdocs_backend
+      networks:
+        - springrestdocs_backend
+      ports:
+        - "80:80"
+      restart: always
+
+networks:
+  springrestdocs_backend:
+    name: springrestdocs_backend
